@@ -22,7 +22,7 @@ connection to the database was successful or not
 | Author |Derek Abing (v 2.0.0)
 | |James Mackin (v.3.0.0+)
 | License |[dynaTrace BSD](dynaTraceBSD.txt)
-| Support | [Not Supported ](https://community.compuwareapm.com/community/display/DL/Support+Levels#SupportLevels-Community) If you have any questions or suggestions for these plugins, please add a comment to this page, use our[forum](https://community.dynatrace.com/community/pages/viewpage.action?pageId=46628918), or drop us an email at [apmcommunity@compuware.com](mailto:apmcommunity@compuware.com)!
+| Support | [Not Supported ](https://community.compuwareapm.com/community/display/DL/Support+Levels#SupportLevels-Community) If you have any questions or suggestions for these plugins, please add a comment to this page, use our           [forum](https://community.dynatrace.com/community/pages/viewpage.action?pageId=46628918), or drop us an email at [apmcommunity@compuware.com](mailto:apmcommunity@compuware.com)!
 | Known Problems |
 | Release History | 2013-05-23 Initial Release by Derek Abing
 | |2013-09-16 Version 3.0.0 provided by James Mackin now provides up to 10 result columns
