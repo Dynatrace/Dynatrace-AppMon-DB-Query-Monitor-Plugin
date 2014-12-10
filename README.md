@@ -15,10 +15,10 @@ connection to the database was successful or not
 
 ## Plugin Details
 
-| Plug-In Versions | [DB Query Monitor Plugin 2.0.0](attachments_121569618_1_com.db.tabmon_2.0.0.jar) (compatible with dynaTrace 4.2+)
+| Plug-In Versions | [DB Query Monitor Plugin 2.0.0](com.db.tabmon_2.0.0.jar) (compatible with dynaTrace 4.2+)
 | :--- | :---
-| |[DB Query Monitor Plugin 3.1.0](attachments_139657220_1_com.db.tabmon_3.1.0.jar) (tested with 5.5)
-| |[DB Query Monitor Plugin 3.2.0](attachments_142541006_1_com.db.tabmon_3.2.0.jar) (added support for Ingres 9.x and Ingres 10.x - tested with dT 5.5)
+| |[DB Query Monitor Plugin 3.1.0](com.db.tabmon_3.1.0.jar) (tested with 5.5)
+| |[DB Query Monitor Plugin 3.2.0](com.db.tabmon_3.2.0.jar) (added support for Ingres 9.x and Ingres 10.x - tested with dT 5.5)
 | Author |Derek Abing (v 2.0.0)
 | |James Mackin (v.3.0.0+)
 | License |[dynaTrace BSD](dynaTraceBSD.txt)
@@ -137,5 +137,5 @@ Content Verified (since v 3.1.0)
 
 ## Installation
 
-Import the Plugin into the dynaTrace Server. For details how to do this please refer to the [dynaTrace documentation](https://community/display/DOCDT50/Manage+and+Develop+User+Plugins).
+Import the Plugin into the dynaTrace Server. For details how to do this please refer to the [dynaTrace documentation](https://community.compuwareapm.com/community/display/DOCDT50/Manage+and+Develop+User+Plugins).
 
