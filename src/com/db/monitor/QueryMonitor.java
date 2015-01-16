@@ -144,6 +144,9 @@ public class QueryMonitor implements Monitor {
 	 		else if(SQLType.equals("Ingres")) {
 	 			con = DriverManager.getConnection(connectionUrl, Username, Password);
 	 		}
+	 		else if(SQLType.equals("Postgres")) {
+	 			con = DriverManager.getConnection(connectionUrl, Username, Password);
+	 		}
 	 		else {
 	 			return new Status(Status.StatusCode.ErrorInternalConfigurationProblem);
 	 		}
@@ -311,6 +314,11 @@ public class QueryMonitor implements Monitor {
 		{
 			sqlclass = "com.ingres.jdbc.IngresDriver";
 			connectionUrl = "jdbc:ingres://" + SQLServer + ":" + Port + "/" + Database + ";";
+		}
+		else if (SQLType.equals("Postgres")) 
+		{
+			sqlclass = "org.postgresql.Driver";
+			connectionUrl = "jdbc:postgresql://" + SQLServer + ":" + Port + "/" + Database;
 		}
 		else {
 			log.warning("Unknown SQLType: " + SQLType);
