@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<!-- plugin.xml file written by dynaTrace Client 4.2.0 -->
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.db.tabmon" name="DB Query Monitor">
+    <information>
+      <category value="" />
+      <displayname value="DB Query Monitor" />
+      <description value="Runs a query on a DB and counts the returned rows" />
+      <supportlevel value="unsupported" />
+    </information>
+    <configuration>
+      <property key="SQLType" label="SQL Type" type="list" description="My property description ..." default="Microsoft SQL Server">
+        <list>
+          <item value="Microsoft SQL Server" />
+          <item value="Oracle" />
+          <item value="IBM DB2" />
+        </list>
+      </property>
+      <property key="SQLPort" label="SQL Port" type="string" description="SQL Port to use on the SQL Server" default="" multiline="false" />
+      <property key="Database" label="Database" type="string" description="Name of the database to connect to on the sql server" default="" multiline="false" />
+      <property key="URL" label="URL" type="string" description="The URL to use to connect to the databse, instead of dynamically constructing the URL from the database, server, port, etc." default="" multiline="true" />
+      <property key="SQLState" label="SQL Statement" type="string" description="SQL Statement to execute on the SQL database.  The returned rows of this statement will be used for the monitor." default="" multiline="false" />
+      <property key="Windows" label="Windows Logon" type="boolean" description="If checked, the program will use windows single sign-on" default="false" />
+      <property key="Username" label="SQL Username" type="string" description="Username to use for login to the database" default="" multiline="false">
+        <visibility>
+          <rule key="Windows" value="false" />
+        </visibility>
+      </property>
+      <property key="Password" label="SQL Password" type="password" description="Password for the username used to connect to the sql database" default="">
+        <visibility>
+          <rule key="Windows" value="false" />
+        </visibility>
+      </property>
+      <property key="Timeout" label="Query Timeout" type="long" description="The query timeout, in seconds. 0 to have no timeout" default="0" />
+      <property key="MatchContent" label="Match Content" type="boolean" description="If this box is checked you can compare the value of the top row of a specific column to a constant value" default="false" />
+      <property key="MatchColumn" label="Match Column Name" type="string" description="The name of the column to compare" default="" multiline="false">
+        <visibility>
+          <rule key="MatchContent" value="true" />
+        </visibility>
+      </property>
+      <property key="MatchValue" label="Match Value" type="string" description="The value, which can be a regular expression, to compare the column to" default="" multiline="false">
+        <visibility>
+          <rule key="MatchContent" value="true" />
+        </visibility>
+      </property>
+      <property key="ColumnCapture" label="Capture Column Data" type="boolean" description="If this box is checked you can capture the value of the top row of a specific column.&#xD;&#xA;****WARNING - The datatype of the column must be numeric!****" default="false" />
+      <property key="QueryName" label="Query Name" type="string" description="A unique name describing this query." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="CName" label="Column Name" type="string" description="The name of the column you wish to capture." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="CName1" label="Column Name 2" type="string" description="The name of the column you wish to capture." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="CName2" label="Column Name 3" type="string" description="The name of the column you wish to capture." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="CName3" label="Column Name 4" type="string" description="The name of the column you wish to capture." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="CName4" label="Column Name 5" type="string" description="The name of the column you wish to capture." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="CName5" label="Column Name 6" type="string" description="The name of the column you wish to capture." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="CName6" label="Column Name 7" type="string" description="The name of the column you wish to capture." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="CName7" label="Column Name 8" type="string" description="The name of the column you wish to capture." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="CName8" label="Column Name 9" type="string" description="The name of the column you wish to capture." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="CName9" label="Column Name 10" type="string" description="The name of the column you wish to capture." default="" multiline="false">
+        <visibility>
+          <rule key="ColumnCapture" value="true" />
+        </visibility>
+      </property>
+      <property key="Schema" label="Schema" type="boolean" description="Specify a different Schema for use with the connection." default="false">
+        <visibility>
+          <rule key="SQLType" value="IBM DB2" />
+        </visibility>
+      </property>
+      <property key="Svalue" label="Schema Value" type="string" description="The schema to use when connecting to the DB2 instance." default="" multiline="false">
+        <visibility>
+          <rule key="Schema" value="true" />
+        </visibility>
+      </property>
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.db.tabmon.monitor" name="DB Query Monitor">
+    <plugin configid="com.db.tabmon" class="com.db.monitor.QMonitor" />
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.db.tabmon.monitor.metricgroup1" name="Query Monitor">
+    <metricgroup monitorid="com.db.tabmon.monitor">
+      <metric defaultrate="purepath" name="Response Time" unit="ms" description="The amount of time to connect to the database and execute the query, in milliseconds. 0 if call didn't successfully complete" />
+      <metric defaultrate="purepath" name="Connect Response Time" unit="ms" description="The amount of time to connect to the database only, in milliseconds. 0 if call didn't successfully complete" />
+      <metric defaultrate="purepath" name="Query Response Time" unit="ms" description="The amount of time to execute the query only, in milliseconds. 0 if call didn't successfully complete" />
+      <metric defaultrate="purepath" name="Row Count" unit="number" description="Number of rows returned in the query" />
+      <metric defaultrate="purepath" name="DB Connection" unit="number" description="Returns a 1 if the DB connection was successful and a 0 if the DB connection failed." />
+      <metric defaultrate="purepath" name="Column Value" unit="number" description="The value of the captured column." />
+      <metric defaultrate="purepath" name="Content Verified" unit="number" description="1 if the specified column name matches the requested column value; 0 if the value doesn't match or no match was requested" />
+    </metricgroup>
+  </extension>
+</plugin>
+
