@@ -15,6 +15,7 @@
           <item value="Microsoft SQL Server" />
           <item value="Oracle" />
           <item value="IBM DB2" />
+          <item value="Ingres" />
         </list>
       </property>
       <property key="SQLPort" label="SQL Port" type="string" description="SQL Port to use on the SQL Server" default="" multiline="false" />

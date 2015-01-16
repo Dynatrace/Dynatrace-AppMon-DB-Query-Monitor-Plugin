@@ -141,6 +141,9 @@ public class QueryMonitor implements Monitor {
 	 		else if(SQLType.equals("IBM DB2")) {
 	 			con = DriverManager.getConnection(connectionUrl, Username, Password);
 	 		}
+	 		else if(SQLType.equals("Ingres")) {
+	 			con = DriverManager.getConnection(connectionUrl, Username, Password);
+	 		}
 	 		else {
 	 			return new Status(Status.StatusCode.ErrorInternalConfigurationProblem);
 	 		}
@@ -303,6 +306,11 @@ public class QueryMonitor implements Monitor {
 			else {
 				connectionUrl = "jdbc:db2://" + SQLServer + ":" + Port + "/" + Database;
 			}
+		}
+		else if (SQLType.equals("Ingres")) 
+		{
+			sqlclass = "com.ingres.jdbc.IngresDriver";
+			connectionUrl = "jdbc:ingres://" + SQLServer + ":" + Port + "/" + Database + ";";
 		}
 		else {
 			log.warning("Unknown SQLType: " + SQLType);
