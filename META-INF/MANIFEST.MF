@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Require-Bundle: com.dynatrace.diagnostics.sdk
 Bundle-Vendor: dynaTrace Community
 Bundle-ClassPath: .,lib/db2jcc4.jar,lib/db2jcc_license_cisuz.jar,lib/i
- ijdbc.jar,lib/ojdbc5.jar,lib/postgresql-9.3-1102.jdbc41.jar,lib/sqljdbc4.jar
-Bundle-Version: 3.2.1
+ ijdbc.jar,lib/ojdbc5.jar,lib/postgresql-9.3-1102.jdbc41.jar,lib/sqljdbc4.jar,lib/nzjdbc.jar
+Bundle-Version: 3.2.2
 Bundle-Name: DB Query Monitor
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: com.db.tabmon;singleton:=true

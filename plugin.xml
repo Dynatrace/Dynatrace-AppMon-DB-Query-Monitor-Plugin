@@ -17,6 +17,7 @@
           <item value="IBM DB2" />
           <item value="Ingres" />
           <item value="Postgres" />
+		  <item value="Netezza" />
         </list>
       </property>
       <property key="SQLPort" label="SQL Port" type="string" description="SQL Port to use on the SQL Server" default="" multiline="false" />
