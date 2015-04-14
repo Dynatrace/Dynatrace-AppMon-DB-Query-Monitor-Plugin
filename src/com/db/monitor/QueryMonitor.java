@@ -147,6 +147,9 @@ public class QueryMonitor implements Monitor {
 	 		else if(SQLType.equals("Postgres")) {
 	 			con = DriverManager.getConnection(connectionUrl, Username, Password);
 	 		}
+	 		else if(SQLType.equals("Netezza")) {
+	 			con = DriverManager.getConnection(connectionUrl, Username, Password);
+	 		}			
 	 		else {
 	 			return new Status(Status.StatusCode.ErrorInternalConfigurationProblem);
 	 		}
@@ -320,6 +323,11 @@ public class QueryMonitor implements Monitor {
 			sqlclass = "org.postgresql.Driver";
 			connectionUrl = "jdbc:postgresql://" + SQLServer + ":" + Port + "/" + Database;
 		}
+		else if (SQLType.equals("Netezza")) 
+		{
+			sqlclass = "org.netezza.Driver";
+			connectionUrl = " jdbc:netezza://" + SQLServer + ":" + Port + "/" + Database;
+		}		
 		else {
 			log.warning("Unknown SQLType: " + SQLType);
  			return new Status(Status.StatusCode.ErrorInternalConfigurationProblem);
