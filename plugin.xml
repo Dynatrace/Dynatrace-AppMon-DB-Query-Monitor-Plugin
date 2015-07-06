@@ -10,13 +10,15 @@
       <supportlevel value="unsupported" />
     </information>
     <configuration>
-      <property key="SQLType" label="SQL Type" type="list" description="My property description ..." default="Microsoft SQL Server">
+      <property key="SQLType" label="SQL Type" type="list" description="The type of SQL server this monitor is connecting to" default="Microsoft SQL Server">
         <list>
           <item value="Microsoft SQL Server" />
           <item value="Oracle" />
+          <item value="MySQL" />
           <item value="IBM DB2" />
-          <item value="Ingres" />
+          <item value="IBM Netezza" />
           <item value="Postgres" />
+          <item value="Ingres" />
         </list>
       </property>
       <property key="SQLPort" label="SQL Port" type="string" description="SQL Port to use on the SQL Server" default="" multiline="false" />

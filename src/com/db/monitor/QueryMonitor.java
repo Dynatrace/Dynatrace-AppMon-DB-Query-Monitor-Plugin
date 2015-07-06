@@ -86,7 +86,7 @@ public class QueryMonitor implements Monitor {
 		columnValue = new double[MAXCOLS];
 		
 		/*
-		 * Extract out the column names and save them out as the names of the dynamic measures. Retain backwward
+		 * Extract out the column names and save them out as the names of the dynamic measures. Retain backward
 		 * compatibility with the v2 version of this plug-in
 		 */
 		String columnName;
@@ -104,7 +104,7 @@ public class QueryMonitor implements Monitor {
 		}
 		
 		/*
-		 * Set the connectionUrl and sqltype variables, to be used to connect to the databse
+		 * Set the connectionUrl and sqltype variables, to be used to connect to the database
 		 */
 		Status status = null;
 		status = setConnectionConfig(env, SQLType, SQLServer, Port, Database, URL);
@@ -147,6 +147,12 @@ public class QueryMonitor implements Monitor {
 	 		else if(SQLType.equals("Postgres")) {
 	 			con = DriverManager.getConnection(connectionUrl, Username, Password);
 	 		}
+	 		else if(SQLType.equals("MySQL")) {
+	 			con = DriverManager.getConnection(connectionUrl, Username, Password);
+	 		}
+	 		else if(SQLType.equals("IBM Netezza")) {
+	 			con = DriverManager.getConnection(connectionUrl, Username, Password);
+	 		}	
 	 		else {
 	 			return new Status(Status.StatusCode.ErrorInternalConfigurationProblem);
 	 		}
@@ -319,6 +325,16 @@ public class QueryMonitor implements Monitor {
 		{
 			sqlclass = "org.postgresql.Driver";
 			connectionUrl = "jdbc:postgresql://" + SQLServer + ":" + Port + "/" + Database;
+		}
+		else if (SQLType.equals("MySQL")) 
+		{
+			sqlclass = "com.mysql.jdbc.Driver";
+			connectionUrl = "jdbc:mysql://" + SQLServer + ":" + Port + "/" + Database;
+		}
+		else if (SQLType.equals("IBM Netezza")) 
+		{
+			sqlclass = "org.netezza.Driver";
+			connectionUrl = "jdbc:netezza://" + SQLServer + ":" + Port + "/" + Database;
 		}
 		else {
 			log.warning("Unknown SQLType: " + SQLType);
