@@ -125,7 +125,7 @@ public class QueryMonitor implements Monitor {
 		connectStartTime = startTime;
 		
 		//connect to the database and check the number of rows returned
-		log.info("Connecting to " + SQLType + " database: " + connectionUrl);
+		log.info("Connecting to " + SQLType + " database, host " + SQLServer + ":" + Port + " database name " + Database);
 		try {
 	         // Establish the connection.
 	        Class.forName(sqlclass);
@@ -231,6 +231,10 @@ public class QueryMonitor implements Monitor {
 			   * 
 			   * So the tradeoff we'll try is to have no records get returned, indicate that the database didn't open correct, but flag the plug-in status
 			   * as success.
+			   * 
+			   * Update from Rick B: It's better to show something is wrong from the monitor status to indicate to the user to look at the log.
+			   * In the previous case a user can misconfigure something like the port number and the plugin looks like it runs successfully with valid 
+			   * values for all measures, even though they're not retrieving any data.
 			   */
 	    	  StringWriter sw = new StringWriter();
 	    	  PrintWriter pw = new PrintWriter(sw);
@@ -238,7 +242,7 @@ public class QueryMonitor implements Monitor {
 	    	  dbconnect = 0;
 	    	  rowcount=0;
 	    	  log.severe(sw.toString());
-		      //status = new Status(Status.StatusCode.ErrorInternalException);
+		      status = new Status(Status.StatusCode.PartialSuccess);
 		  }
 	      catch (Exception e) {
 	    	  /*
