@@ -125,7 +125,7 @@ public class QueryMonitor implements Monitor {
 		connectStartTime = startTime;
 		
 		//connect to the database and check the number of rows returned
-		log.info("Connecting to " + SQLType + " database, host " + SQLServer + ":" + Port + " database name " + Database);
+		log.info("Connecting to " + SQLType + " database: " + connectionUrl);
 		try {
 	         // Establish the connection.
 	        Class.forName(sqlclass);
@@ -238,7 +238,7 @@ public class QueryMonitor implements Monitor {
 	    	  dbconnect = 0;
 	    	  rowcount=0;
 	    	  log.severe(sw.toString());
-		      status = new Status(Status.StatusCode.PartialSuccess);
+		      //status = new Status(Status.StatusCode.ErrorInternalException);
 		  }
 	      catch (Exception e) {
 	    	  /*
