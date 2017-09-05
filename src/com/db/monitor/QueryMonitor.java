@@ -31,7 +31,6 @@ public class QueryMonitor implements Monitor {
 	private static final String CONFIG_MATCHVALUE = "MatchValue";
 	private static final String CONFIG_GETCOLUMN = "ColumnCapture";
 	private static final String CONFIG_TYPE = "SQLType";
-	private static final String ORACLE_CONNECTION_METHOD = "OracleConnectMthd";
 	private static final String CONFIG_CNAME = "CName";
 	private int rowcount = 0;
 	private int dbconnect = 0;
@@ -60,7 +59,6 @@ public class QueryMonitor implements Monitor {
 	private boolean getc;
 	private String SQLType;
 	private long timeout;
-	private String OracleConnectionMthd;
 
 	@Override
 	public Status setup(MonitorEnvironment env) throws Exception {
@@ -83,7 +81,6 @@ public class QueryMonitor implements Monitor {
 		matchValue = env.getConfigString(CONFIG_MATCHVALUE);
 		getc = env.getConfigBoolean(CONFIG_GETCOLUMN);
 		SQLType = env.getConfigString(CONFIG_TYPE);
-		OracleConnectionMthd = env.getConfigString(ORACLE_CONNECTION_METHOD);
 		timeout = env.getConfigLong(CONFIG_TIMEOUT);
 		CName = new String[MAXCOLS];
 		columnValue = new double[MAXCOLS];
@@ -309,17 +306,7 @@ public class QueryMonitor implements Monitor {
 		}
 		else if(SQLType.equals("Oracle")) {
 			sqlclass = "oracle.jdbc.driver.OracleDriver";
-			/*
-			 * Determine whether the SID or service name connection string format should be used -James K
-			 */
-				if (OracleConnectionMthd.equals("SID")) {
-					connectionUrl = "jdbc:oracle:thin:@" + SQLServer + ":" + Port + ":" + Database;
-					log.info("connection string: " + connectionUrl);
-				}
-				else if (OracleConnectionMthd.equals("Service_Name")) {
-					connectionUrl = "jdbc:oracle:thin:@//" + SQLServer + ":" + Port + "/" + Database;
-					log.info("connection string: " + connectionUrl);
-				}
+			connectionUrl = "jdbc:oracle:thin:@" + SQLServer + ":" + Port + ":" + Database;
 		}
 		else if(SQLType.equals("IBM DB2"))
 		{
