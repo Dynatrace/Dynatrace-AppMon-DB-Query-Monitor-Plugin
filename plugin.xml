@@ -21,6 +21,15 @@
           <item value="Ingres" />
         </list>
       </property>
+      <property key="OracleConnectMthd" label="Oracle Connection Method" type="list" description="Specify whether SID or Service Name is being used. " default="SID">
+        <visibility>
+         <rule key="SQLType" value="Oracle" />
+        </visibility>
+        <list>
+          <item value="SID" />
+          <item value="Service_Name" />
+        </list>
+      </property>
       <property key="SQLPort" label="SQL Port" type="string" description="SQL Port to use on the SQL Server" default="" multiline="false" />
       <property key="Database" label="Database" type="string" description="Name of the database to connect to on the sql server" default="" multiline="false" />
       <property key="URL" label="URL" type="string" description="The URL to use to connect to the databse, instead of dynamically constructing the URL from the database, server, port, etc." default="" multiline="true" />
@@ -131,4 +140,3 @@
     </metricgroup>
   </extension>
 </plugin>
-
